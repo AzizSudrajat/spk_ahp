@@ -123,6 +123,19 @@ class Kriteria extends CI_Controller {
 			$analisa->nilai_analisa_kriteria = '1';
 			$analisa->insert();
 		}
-		// redirect('kriteria/index');
+		redirect('kriteria/index');
+	}
+
+	public function table_analisa_kriteria(){
+		$data['title'] = 'Data Kriteria';
+		$data['sub_title1'] = 'Tabel Perbandingan Antar Kriteria';
+		$data['sub_title2'] = 'Tabel Normalisasi Antar Kriteria';
+		$kriteria = $this->KriteriaModel;
+		$analisa = $this->AnalisaKriteriaModel;
+		$data['kriteria'] = $kriteria->get();
+		$data['analisa'] = $analisa->get('*',NULL,NULL);
+		$this->load->view('layout/header');
+		$this->load->view('kriteria/analisa/table',$data);
+		$this->load->view('layout/footer');
 	}
 }

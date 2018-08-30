@@ -17,6 +17,20 @@ class AnalisaKriteriaModel extends CI_Model {
 			$query = $this->db->get($this->table);
 			return $query->result();
 	}
+	public function get1($select = '*',$join = NULL,$limit = NULL)
+	{
+			if($join != NULL){
+					$this->db->select($select);
+					foreach ($join as $row) {
+							$this->db->join($row['table'],$row['condition']);
+					}
+			}
+			if($limit != NULL){
+					$this->db->limit($limit);
+			}
+			$query = $this->db->get($this->table);
+			return $query;
+	}
 	public function insert(){
 			$this->db->insert($this->table, $this);
 	}
@@ -37,6 +51,11 @@ class AnalisaKriteriaModel extends CI_Model {
 					$this->db->where('id_alternatif',$id);
 					$table = $this->db->get($this->table,1);
 					return $table->row_array();
+	}
+	public function selectsum($field){
+		$this->db->select_sum($field);
+		$query = $this->db->get($this->table);
+		return $query->row_array();
 	}
 }
 ?>
