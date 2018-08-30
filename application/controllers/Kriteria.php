@@ -130,6 +130,7 @@ class Kriteria extends CI_Controller {
 		$data['title'] = 'Data Kriteria';
 		$data['sub_title1'] = 'Tabel Perbandingan Antar Kriteria';
 		$data['sub_title2'] = 'Tabel Normalisasi Antar Kriteria';
+		$data['sub_title3'] = 'Prioritas Kriteria';
 		$kriteria = $this->KriteriaModel;
 		$analisa = $this->AnalisaKriteriaModel;
 		$data['kriteria'] = $kriteria->get();

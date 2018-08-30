@@ -68,6 +68,7 @@
         </div>
       </div>
 
+      <!-- normalisasi -->
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -77,10 +78,11 @@
             <table id="example1" class="table table-striped">
               <thead>
                 <tr>
-                  <th>Antar Kriteria</th>
+                  <th>Normalisasi</th>
                   <?php foreach ($kriteria as $row): ?>
                     <th><?php echo $row->nama_kriteria; ?></th>
                   <?php endforeach; ?>
+                  <th>Bobot</th>
                 </tr>
               </thead>
               <tbody>
@@ -98,18 +100,37 @@
                   $x = $model->get();
                   $no = '1';
                   $model1 = $this->AnalisaKriteriaModel;
-                  foreach ($x as $row){ ?>
+                  foreach ($x as $row1){ ?>
                     <?php
-                    $model1->where('kriteria_id_pertama', $row->kriteria_id_pertama);
+                    $model1->where('kriteria_id_pertama', $row1->kriteria_id_pertama);
                     $model1->where('kriteria_id_kedua', 'C'.$no);
                     $data = $model1->get1()->row_array();
                     $model3 = $this->AnalisaKriteriaModel;
                     $model3->where('kriteria_id_kedua', 'C'.$no);
                     $sum1 = $model3->selectsum('nilai_analisa_kriteria');
-                    var_dump($sum1['nilai_analisa_kriteria']);
                      ?>
-                     <td><?php echo number_format($data['nilai_analisa_kriteria']/$sum1['nilai_analisa_kriteria'], 3, '.', ',') ; ?></td>
+                     <td>
+                       <?php
+                        $result_normalisasi = $data['nilai_analisa_kriteria']/$sum1['nilai_analisa_kriteria'];
+                       echo number_format($result_normalisasi, 3, '.', ',') ;
+                       $model5 = $this->AnalisaKriteriaModel;
+                       $model5->hasil_analisa_kriteria = $result_normalisasi;
+                       $model5->update_hasil($row1->kriteria_id_pertama,'C'.$no);
+                       ?>
+                     </td>
                   <?php $no++; } ?>
+                  <td>
+                    <?php
+                    $model4 = $this->AnalisaKriteriaModel;
+                    $model4->where('kriteria_id_pertama', $row->id_kriteria);
+                    $avg = $model4->selectavg('hasil_analisa_kriteria');
+                    $hasil_avg = number_format($avg['hasil_analisa_kriteria'], 3, '.', ',');
+                    echo $hasil_avg;
+                    $model6 = $this->KriteriaModel;
+                    $model6->bobot_kriteria = $hasil_avg;
+                    $model6->update($row->id_kriteria);
+                     ?>
+                  </td>
                 </tr>
               <?php  $i++; } ?>
               </tbody>
@@ -131,6 +152,25 @@
         </div>
       </div>
 
+      <!-- hasil priprotas Kriteria -->
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <?php echo $sub_title3; ?>
+          </div>
+          <div class="panel-body">
+            <?php
+            $this->load->model('KriteriaModel');
+            $model7 = $this->KriteriaModel;
+            $this->db->order_by("bobot_kriteria", "desc");
+            $result_prioritas = $model7->get();
+            $no = 1;
+            foreach ($result_prioritas as $row){ ?>
+              <h4>Proritas ke-<?php echo $no.' '.$row->nama_kriteria.' = '.$row->bobot_kriteria; ?></h4>
+             <?php $no++; } ?>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

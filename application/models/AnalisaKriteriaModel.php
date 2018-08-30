@@ -57,5 +57,13 @@ class AnalisaKriteriaModel extends CI_Model {
 		$query = $this->db->get($this->table);
 		return $query->row_array();
 	}
+	public function selectavg($field){
+		$this->db->select_avg($field);
+		$query = $this->db->get($this->table);
+		return $query->row_array();
+	}
+	public function update_hasil($kriteria1, $kriteria2){
+			$this->db->update($this->table, $this, array('kriteria_id_pertama' => $kriteria1, 'kriteria_id_kedua' => $kriteria2));
+	}
 }
 ?>
