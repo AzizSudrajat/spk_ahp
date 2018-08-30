@@ -6,7 +6,10 @@
         <h4 class="page-head-line"><?php echo $title; ?></h4>
       </div>
     </div>
-
+    <?php
+    $this->load->model('KriteriaModel');
+    $this->load->model('AnalisaKriteriaModel');
+     ?>
     <!-- BODY -->
     <div class="row">
       <div class="col-md-12">
@@ -27,7 +30,7 @@
               <tbody>
                 <?php
               $jumlah_kriteria1 = count($kriteria) + 1;
-              $this->load->model('AnalisaKriteriaModel');
+
               $model = $this->AnalisaKriteriaModel;
               $i = 1 ;
               foreach ($kriteria as $row) { ?>
@@ -88,7 +91,6 @@
               <tbody>
                 <?php
               $jumlah_kriteria1 = count($kriteria) + 1;
-              $this->load->model('AnalisaKriteriaModel');
               $model = $this->AnalisaKriteriaModel;
               $i = 1 ;
               foreach ($kriteria as $row) { ?>
@@ -145,6 +147,11 @@
                    ?>
                    <th><?php echo number_format($sum['nilai_analisa_kriteria']/$sum['nilai_analisa_kriteria'], 3, '.', ','); ?></th>
                  <?php } ?>
+                 <?php
+                 $model8 = $this->KriteriaModel;
+                 $bobot = $model8->selectsum('bobot_kriteria');
+                  ?>
+                  <th><?php echo number_format(round($bobot['bobot_kriteria']), 3, '.', ','); ?></th>
               </tr>
               </tfoot>
             </table>
@@ -160,13 +167,12 @@
           </div>
           <div class="panel-body">
             <?php
-            $this->load->model('KriteriaModel');
             $model7 = $this->KriteriaModel;
             $this->db->order_by("bobot_kriteria", "desc");
             $result_prioritas = $model7->get();
             $no = 1;
             foreach ($result_prioritas as $row){ ?>
-              <h4>Proritas ke-<?php echo $no.' '.$row->nama_kriteria.' = '.$row->bobot_kriteria; ?></h4>
+              <h3>Proritas ke-<?php echo $no.' '.$row->nama_kriteria.' = '.$row->bobot_kriteria; ?></h3>
              <?php $no++; } ?>
           </div>
         </div>

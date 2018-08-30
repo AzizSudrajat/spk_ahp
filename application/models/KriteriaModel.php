@@ -38,5 +38,10 @@ class KriteriaModel extends CI_Model {
 					$table = $this->db->get($this->table,1);
 					return $table->row_array();
 	}
+	public function selectsum($field){
+		$this->db->select_sum($field);
+		$query = $this->db->get($this->table);
+		return $query->row_array();
+	}
 }
 ?>
