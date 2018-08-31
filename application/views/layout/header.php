@@ -68,9 +68,9 @@
         <div class="col-md-12">
           <div class="navbar-collapse collapse ">
             <ul id="menu-top" class="nav navbar-nav navbar-right">
-              <li><a class="menu-top-active" href="<?php echo base_url(); ?>">Beranda</a></li>
-              <li><a href="<?php echo base_url('nilai'); ?>">Nilai</a></li>
-              <li class="dropdown">
+              <li class="menu-top-active"><a  href="<?php echo base_url(); ?>">Beranda</a></li>
+              <li class=""><a href="<?php echo base_url('nilai'); ?>">Nilai</a></li>
+              <li class="dropdown ">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kriteria
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -86,8 +86,8 @@
                   <!-- <li><a href="#">Analisis Alternatif</a></li> -->
                 </ul>
               </li>
-              <li><a href="#">Ranking</a></li>
-              <li><a href="#">Laporan</a></li>
+              <li class=""><a href="#">Ranking</a></li>
+              <li class=""><a href="#">Laporan</a></li>
             </ul>
           </div>
         </div>
