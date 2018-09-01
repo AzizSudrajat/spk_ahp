@@ -38,5 +38,40 @@ class AlternatifModel extends CI_Model {
 					$table = $this->db->get($this->table,1);
 					return $table->row_array();
 	}
+
+	// bobot hasil_alternatif_kriteria
+	public function getbobot($select = '*',$join = NULL,$limit = NULL)
+	{
+			if($join != NULL){
+					$this->db->select($select);
+					foreach ($join as $row) {
+							$this->db->join($row['table'],$row['condition']);
+					}
+			}
+			if($limit != NULL){
+					$this->db->limit($limit);
+			}
+			$query = $this->db->get('hasil_alternatif_kriteria');
+			return $query;
+	}
+	public function find_hasil($kriteria,$alternatif,$kasus){
+		$this->db->where('kriteria_id',$kriteria);
+		$this->db->where('alternatif_id',$alternatif);
+		$this->db->where('kasus_id',$kasus);
+		$table = $this->db->get('hasil_alternatif_kriteria',1);
+		return $table->row_array();
+	}
+	public function insertbobot(){
+			$this->db->insert('hasil_alternatif_kriteria', $this);
+	}
+	public function updatebobot($id1,$id2,$id3){
+			$this->db->update('hasil_alternatif_kriteria', array('kriteria_id' => $id1,'alternatif_id' => $id2,'kasus_id' => $id3));
+	}
+	public function selectsum($field,$kriteria){
+		$this->db->select_sum($field);
+		$this->db->where('kriteria_id',$kriteria);
+		$query = $this->db->get('hasil_alternatif_kriteria');
+		return $query->row_array();
+	}
 }
 ?>

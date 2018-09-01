@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class KriteriaModel extends CI_Model {
-	protected $table = 'kriteria';
+class AnalisaAlternatifModel extends CI_Model {
+	protected $table = 'analisa_alternatif';
 
 	public function get($select = '*',$join = NULL,$limit = NULL)
 	{
@@ -35,10 +35,10 @@ class KriteriaModel extends CI_Model {
 			$this->db->insert($this->table, $this);
 	}
 	public function update($id){
-			$this->db->update($this->table, $this, array('id_kriteria' => $id));
+			$this->db->update($this->table, $this, array('id_alternatif' => $id));
 	}
 	public function delete($id){
-					$this->db->delete($this->table,['id_kriteria'=>$id]);
+					$this->db->delete($this->table,['kasus_id'=>$id]);
 	}
 
 	public function where($field,$value){
@@ -48,7 +48,7 @@ class KriteriaModel extends CI_Model {
 			return $this->db->like($field,$value);
 	}
 	public function find($id){
-					$this->db->where('id_kriteria',$id);
+					$this->db->where('id_alternatif',$id);
 					$table = $this->db->get($this->table,1);
 					return $table->row_array();
 	}
@@ -56,6 +56,14 @@ class KriteriaModel extends CI_Model {
 		$this->db->select_sum($field);
 		$query = $this->db->get($this->table);
 		return $query->row_array();
+	}
+	public function selectavg($field){
+		$this->db->select_avg($field);
+		$query = $this->db->get($this->table);
+		return $query->row_array();
+	}
+	public function update_hasil($alternatif1, $alternatif2, $kriteria,$kasus){
+			$this->db->update($this->table, $this, array('alternatif_id_pertama' => $alternatif1, 'alternatif_id_kedua' => $alternatif2, 'kriteria_id' => $kriteria, 'kasus_id' => $kasus));
 	}
 }
 ?>
