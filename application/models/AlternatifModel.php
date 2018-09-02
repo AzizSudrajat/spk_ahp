@@ -76,5 +76,10 @@ class AlternatifModel extends CI_Model {
 		$query = $this->db->get('hasil_alternatif_kriteria');
 		return $query->row_array();
 	}
+	public function selectavg($field){
+		$this->db->select_avg($field);
+		$query = $this->db->get('hasil_alternatif_kriteria');
+		return $query->row_array();
+	}
 }
 ?>

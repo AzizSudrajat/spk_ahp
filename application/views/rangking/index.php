@@ -16,8 +16,9 @@
           </div>
           <div class="panel-body">
             <?php
-            $this->load->model('AlternatifModel');
-            $this->load->model('KriteriaModel');
+            $this->load->model(array('AlternatifModel','KriteriaModel','RankingModel'));
+            // $this->load->model('');
+            // $this->load->model('RangkingModel');
             $model = $this->AlternatifModel;
             $model2 = $this->KriteriaModel;
              ?>
@@ -31,7 +32,6 @@
                 </tr>
               </thead>
               <tbody>
-
                   <?php foreach ($alternatif as $row){ ?>
                     <tr>
                     <th><?php echo $row->nama_alternatif; ?></th>
@@ -88,11 +88,11 @@
               </thead>
               <tbody>
 
-                  <?php foreach ($alternatif as $row){ ?>
+                  <?php foreach ($alternatif as $row3){ ?>
                     <tr>
-                    <th><?php echo $row->nama_alternatif; ?></th>
+                    <th><?php echo $row3->nama_alternatif; ?></th>
                     <?php
-                    $model->where('alternatif_id',$row->id_alternatif);
+                    $model->where('alternatif_id',$row3->id_alternatif);
                     $nilai = $model->getbobot()->result();
                     foreach ($nilai as $row1){ ?>
                       <td><?php
@@ -104,12 +104,27 @@
                       echo $result_normalisasi;
                       $model4 = $this->AlternatifModel;
                       $model4->hasil_alt_kri = $result_normalisasi;
-                      $model4->update_hasil($row1->kriteria_id,$row->id_alternatif,$kasus_id);
+                      $model4->update_hasil($row1->kriteria_id,$row3->id_alternatif,$kasus_id);
                        ?></td>
-                       <td>
-                         <?php  ?>
-                       </td>
+
                     <?php } ?>
+                    <td>
+                      <?php
+                      $model5 = $this->AlternatifModel;
+                      $model5->where('alternatif_id',$row3->id_alternatif);
+                      $avg = $model5->selectavg('hasil_alt_kri');
+                      $result_avg = $avg['hasil_alt_kri'];
+                      echo $result_avg;
+                      var_dump($result_avg,$row3->id_alternatif,$kasus_id);
+
+
+                      $hasil = $this->RankingModel;
+                      $hasil->alternatif_id = $row3->id_alternatif;
+                      $hasil->bobot = $result_avg;
+                      $hasil->kasus_id = $kasus_id;
+                      $hasil->insert();
+                        ?>
+                    </td>
                     </tr>
                   <?php } ?>
                   <tr>
@@ -123,6 +138,7 @@
                       ?>
                       <th><?php echo $result_normalisasi; ?></th>
                     <?php } ?>
+                    <th></th>
                   </tr>
               </tbody>
               <tfoot>
@@ -141,12 +157,15 @@
                   ?>
                   <th><?php echo $result_normalisasi; ?></th>
                 <?php } ?>
+                <th></th>
               </tfoot>
             </table>
           </div>
         </div>
       </div>
-
+      <div class="col-md-12">
+        <a class="btn btn-success" href="<?php echo base_url(); ?>">Beranda</a>
+      </div>
     </div>
   </div>
 </div>

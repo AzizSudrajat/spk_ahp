@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2018 at 03:42 PM
+-- Generation Time: Sep 02, 2018 at 02:04 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -179,21 +179,21 @@ CREATE TABLE `hasil_alternatif_kriteria` (
 --
 
 INSERT INTO `hasil_alternatif_kriteria` (`id`, `kriteria_id`, `alternatif_id`, `skor_alt_kri`, `hasil_alt_kri`, `kasus_id`) VALUES
-(32, 'C1', 'A1', 0.738, 0, 'CA0578'),
-(33, 'C1', 'A2', 0.055, 0, 'CA0578'),
-(34, 'C1', 'A3', 0.207, 0, 'CA0578'),
-(35, 'C2', 'A1', 0.205, 0, 'CA0578'),
-(36, 'C2', 'A2', 0.167, 0, 'CA0578'),
-(37, 'C2', 'A3', 0.134, 0, 'CA0578'),
-(38, 'C3', 'A1', 0.022, 0, 'CA0578'),
-(39, 'C3', 'A2', 0.279, 0, 'CA0578'),
-(40, 'C3', 'A3', 0.084, 0, 'CA0578'),
-(41, 'C4', 'A1', 0.125, 0, 'CA0578'),
-(42, 'C4', 'A2', 0.012, 0, 'CA0578'),
-(43, 'C4', 'A3', 0.055, 0, 'CA0578'),
-(44, 'C5', 'A1', 0.067, 0, 'CA0578'),
-(45, 'C5', 'A2', 0.091, 0, 'CA0578'),
-(46, 'C5', 'A3', 0.033, 0, 'CA0578');
+(32, 'C1', 'A1', 0.738, 0.48393442622951, 'CA0578'),
+(33, 'C1', 'A2', 0.055, 0.036065573770492, 'CA0578'),
+(34, 'C1', 'A3', 0.207, 0.13573770491803, 'CA0578'),
+(35, 'C2', 'A1', 0.205, 0.28043775649795, 'CA0578'),
+(36, 'C2', 'A2', 0.167, 0.22845417236662, 'CA0578'),
+(37, 'C2', 'A3', 0.134, 0.18331053351573, 'CA0578'),
+(38, 'C3', 'A1', 0.022, 0.042065009560229, 'CA0578'),
+(39, 'C3', 'A2', 0.279, 0.53346080305927, 'CA0578'),
+(40, 'C3', 'A3', 0.084, 0.16061185468451, 'CA0578'),
+(41, 'C4', 'A1', 0.125, 0.45289855072464, 'CA0578'),
+(42, 'C4', 'A2', 0.012, 0.043478260869565, 'CA0578'),
+(43, 'C4', 'A3', 0.055, 0.19927536231884, 'CA0578'),
+(44, 'C5', 'A1', 0.067, 0.30593607305936, 'CA0578'),
+(45, 'C5', 'A2', 0.091, 0.41552511415525, 'CA0578'),
+(46, 'C5', 'A3', 0.033, 0.15068493150685, 'CA0578');
 
 -- --------------------------------------------------------
 
@@ -204,10 +204,17 @@ INSERT INTO `hasil_alternatif_kriteria` (`id`, `kriteria_id`, `alternatif_id`, `
 CREATE TABLE `kasus` (
   `id` varchar(6) NOT NULL,
   `id_kasus` varchar(6) NOT NULL,
-  `nama_kasus` int(25) NOT NULL,
+  `nama_kasus` varchar(50) NOT NULL,
   `tanggal_kasus` varchar(25) NOT NULL,
   `deskripsi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kasus`
+--
+
+INSERT INTO `kasus` (`id`, `id_kasus`, `nama_kasus`, `tanggal_kasus`, `deskripsi`) VALUES
+('', 'CA0578', 'Pemilihan Karyawan', 'Desember', 'Lala yeye');
 
 -- --------------------------------------------------------
 
@@ -268,6 +275,28 @@ INSERT INTO `nilai` (`id_nilai`, `jumlah_nilai`, `deskripsi`) VALUES
 ('N15', 0.143, '1 bagi sangat penting dari'),
 ('N16', 0.125, '1 bagi mendekati mutlak dari'),
 ('N17', 0.1, '1 bagi mutlak sangat penting dari');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ranking`
+--
+
+CREATE TABLE `ranking` (
+  `id` int(11) NOT NULL,
+  `alternatif_id` varchar(6) NOT NULL,
+  `bobot` double NOT NULL,
+  `kasus_id` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ranking`
+--
+
+INSERT INTO `ranking` (`id`, `alternatif_id`, `bobot`, `kasus_id`) VALUES
+(4, 'A1', 0.31305436321433777, 'CA0578'),
+(5, 'A2', 0.25139678484423944, 'CA0578'),
+(6, 'A3', 0.165924077388792, 'CA0578');
 
 -- --------------------------------------------------------
 
@@ -342,6 +371,12 @@ ALTER TABLE `nilai`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
+-- Indexes for table `ranking`
+--
+ALTER TABLE `ranking`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -368,6 +403,12 @@ ALTER TABLE `analisa_kriteria`
 --
 ALTER TABLE `hasil_alternatif_kriteria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `ranking`
+--
+ALTER TABLE `ranking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

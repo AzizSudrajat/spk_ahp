@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class RangkingModel extends CI_Model {
-	protected $table = 'rangking';
+class RankingModel extends CI_Model {
+	protected $table = 'ranking';
 
 	public function get($select = '*',$join = NULL,$limit = NULL)
 	{
@@ -26,7 +26,6 @@ class RangkingModel extends CI_Model {
 	public function delete($id){
 					$this->db->delete($this->table,['id'=>$id]);
 	}
-
 	public function where($field,$value){
 			return $this->db->where($field,$value);
 	}

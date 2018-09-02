@@ -65,5 +65,10 @@ class AnalisaAlternatifModel extends CI_Model {
 	public function update_hasil($alternatif1, $alternatif2, $kriteria,$kasus){
 			$this->db->update($this->table, $this, array('alternatif_id_pertama' => $alternatif1, 'alternatif_id_kedua' => $alternatif2, 'kriteria_id' => $kriteria, 'kasus_id' => $kasus));
 	}
+
+	//Rangking
+	public function insert_ranking(){
+			$this->db->insert('ranking', $this);
+	}
 }
 ?>
