@@ -12,7 +12,8 @@ class Rangking extends CI_Controller {
 		// $model->where('default', '1');
 		// $data['table'] = $model->get();
 		$data['title'] = 'Data Rangking';
-		$data['sub_title'] = 'Table Rangking';
+    $data['sub_title'] = 'Table Rangking';
+		$data['sub_title1'] = 'Table Rangking Normalisasi';
     $data['kasus_id'] = $id;
 
     $model = $this->KriteriaModel;

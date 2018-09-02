@@ -35,12 +35,13 @@ $model = $this->AlternatifModel;
     <th>Jumlah</th>
     <?php
     // $this->load->model('AnalisaAlternatifModel');
-    // $model1 = $this->AnalisaAlternatifModel;
+    $model1 = $this->AlternatifModel;
     foreach ($kriteria as $row){
-      // $result = $model1->selectsum('skor_alt_kri',$row->id_kriteria);
-      // var_dump($result);
+      // $model1->where('kriteria_id',$row->id_kriteria);
+      $result = $model1->selectsum('skor_alt_kri',$row->id_kriteria);
+      var_dump($result);
       ?>
-
+      <th><?php echo $result['skor_alt_kri'] + $row->bobot_kriteria; ?></th>
     <?php } ?>
   </tfoot>
 </table>

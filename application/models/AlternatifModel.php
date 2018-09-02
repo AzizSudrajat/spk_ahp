@@ -67,6 +67,9 @@ class AlternatifModel extends CI_Model {
 	public function updatebobot($id1,$id2,$id3){
 			$this->db->update('hasil_alternatif_kriteria', array('kriteria_id' => $id1,'alternatif_id' => $id2,'kasus_id' => $id3));
 	}
+	public function update_hasil($kriteria,$alternatif,$kasus){
+			$this->db->update('hasil_alternatif_kriteria', $this, array('kriteria_id' => $kriteria, 'alternatif_id' => $alternatif, 'kasus_id' => $kasus));
+	}
 	public function selectsum($field,$kriteria){
 		$this->db->select_sum($field);
 		$this->db->where('kriteria_id',$kriteria);
