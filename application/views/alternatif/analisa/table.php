@@ -40,12 +40,14 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
 
                   <?php
                   $model->where('alternatif_id_pertama','A'.$i);
+                  $model->where('kasus_id',$kasus_id);
                   $model->where('kriteria_id',$kriteria_id);
                   $x = $model->get();
                   $no = '1';
                   $model1 = $this->AnalisaAlternatifModel;
                   foreach ($x as $row){ ?>
                     <?php
+                    $model1->where('kasus_id',$kasus_id);
                     $model1->where('kriteria_id',$kriteria_id);
                     $model1->where('alternatif_id_pertama', $row->alternatif_id_pertama);
                     $model1->where('alternatif_id_kedua', 'A'.$no);
@@ -63,6 +65,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                  <?php
                  $model2 = $this->AnalisaAlternatifModel;
                  foreach ($alternatif as $row){
+                   $model2->where('kasus_id',$kasus_id);
                    $model2->where('kriteria_id',$kriteria_id);
                    $model2->where('alternatif_id_kedua', $row->id_alternatif);
                    $sum = $model2->selectsum('nilai_analisa_alternatif');
@@ -103,6 +106,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                   <th><?php echo $row->nama_alternatif; ?></th>
 
                   <?php
+                  $model->where('kasus_id',$kasus_id);
                   $model->where('alternatif_id_pertama','A'.$i);
                   $model->where('kriteria_id',$kriteria_id);
                   $x = $model->get();
@@ -110,11 +114,13 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                   $model1 = $this->AnalisaAlternatifModel;
                   foreach ($x as $row1){ ?>
                     <?php
+                    $model1->where('kasus_id',$kasus_id);
                     $model1->where('alternatif_id_pertama', $row1->alternatif_id_pertama);
                     $model1->where('alternatif_id_kedua', 'A'.$no);
                     $model1->where('kriteria_id',$kriteria_id);
                     $data = $model1->get1()->row_array();
                     $model3 = $this->AnalisaAlternatifModel;
+                    $model3->where('kasus_id',$kasus_id);
                     $model3->where('alternatif_id_kedua', 'A'.$no);
                     $sum1 = $model3->selectsum('nilai_analisa_alternatif');
                      ?>
@@ -132,6 +138,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                   <td>
                     <?php
                     $model4 = $this->AnalisaAlternatifModel;
+                    $model4->where('kasus_id',$kasus_id);
                     $model4->where('kriteria_id',$kriteria_id);
                     $model4->where('alternatif_id_pertama', $row->id_alternatif);
                     $avg = $model4->selectavg('hasil_analisa_alternatif');
@@ -167,6 +174,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
               <?php
                $model2 = $this->AnalisaAlternatifModel;
                foreach ($alternatif as $row){
+                 $model2->where('kasus_id',$kasus_id);
                  $model2->where('kriteria_id',$kriteria_id);
                  $model2->where('alternatif_id_kedua', $row->id_alternatif);
                  $sum = $model2->selectsum('nilai_analisa_alternatif');
@@ -175,6 +183,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                <?php } ?>
                <?php
                $model8 = $this->AlternatifModel;
+               $model8->where('kasus_id',$kasus_id);
                $bobot = $model8->selectsum('skor_alt_kri',$kriteria_id);
 
                 ?>
@@ -186,34 +195,12 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
         </div>
       </div>
 
-      <!-- hasil priprotas Kriteria -->
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <?php echo $sub_title3; ?>
-          </div>
-          <div class="panel-body">
-            <h2 class="text-center"><?php echo $sub_title3.' Kriteria '.$kriteria_id; ?></h2>
-            <br>
-            <?php
-            $model7 = $this->AlternatifModel;
-            $this->db->order_by("skor_alt_kri", "desc");
-            $model7->where('kriteria_id',$kriteria_id);
-            $result_prioritas = $model7->getbobot('hasil_alternatif_kriteria.*, alternatif.deskripsi as nama,',
-            [
-              ['table'=>'alternatif','condition'=>'alternatif.id_alternatif = hasil_alternatif_kriteria.alternatif_id']
-            ])->result();
-            $no = 1;
-            foreach ($result_prioritas as $row){ ?>
-              <h3>Proritas ke-<?php echo $no.' '.$row->nama.' = '.$row->skor_alt_kri; ?></h3>
-             <?php $no++; } ?>
-          </div>
-        </div>
-      </div>
+      
 
       <div class="col-md-10">
         <?php
         $model9 = $this->AlternatifModel;
+        $model9->where('kasus_id',$kasus_id);
         $p1 = $model9->getbobot()->result();
         ?>
         <?php

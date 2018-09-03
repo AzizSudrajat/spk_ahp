@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Alternatif extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model(array('AlternatifModel','KriteriaModel','NilaiModel','AnalisaAlternatifModel'));
+		$this->load->model(array('AlternatifModel','KriteriaModel','NilaiModel','AnalisaAlternatifModel','KasusModel'));
 		$this->load->helper('string');
 	}
 	public function index(){
@@ -89,6 +89,16 @@ class Alternatif extends CI_Controller {
 		$model1 = $this->NilaiModel;
 		$data['table1'] = $model1->get();
 
+		if (!empty($this->input->post('Nama'))) {
+			$kasus_no = $kasus_id;
+			$kasus = $this->KasusModel;
+			$kasus->id_kasus = $kasus_no;
+			$kasus->nama_kasus = $this->input->post('Nama');
+			$kasus->deskripsi = $this->input->post('Deskripsi');
+			$kasus->tanggal_kasus = $this->input->post('Tanggal');
+			$kasus->insert();
+		}
+
 		$model2 = $this->KriteriaModel;
 		$model2->where('id_kriteria',$kriteria_id);
 		$data['kriteria'] = $model2->get1()->row_array();
@@ -172,5 +182,12 @@ class Alternatif extends CI_Controller {
 		$this->load->view('layout/header');
 		$this->load->view('alternatif/analisa/table',$data);
 		$this->load->view('layout/footer');
+	}
+
+	public function delete_analisa($id){
+		$model = $this->AnalisaAlternatifModel;
+    $model->delete($id);
+		$model1 = $this->AlternatifModel;
+		$model1->deletehasil($id);
 	}
 }

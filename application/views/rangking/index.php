@@ -37,6 +37,7 @@
                     <th><?php echo $row->nama_alternatif; ?></th>
                     <?php
                     $model->where('alternatif_id',$row->id_alternatif);
+                    $model->where('kasus_id',$kasus_id);
                     $nilai = $model->getbobot()->result();
                     foreach ($nilai as $row1){ ?>
                       <td><?php echo $row1->skor_alt_kri; ?></td>
@@ -55,6 +56,7 @@
                 <?php
                 $model1 = $this->AlternatifModel;
                 foreach ($kriteria as $row){
+                  $model1->where('kasus_id',$kasus_id);
                   $result = $model1->selectsum('skor_alt_kri',$row->id_kriteria);
                   ?>
                   <th><?php echo $result['skor_alt_kri'] + $row->bobot_kriteria; ?></th>
@@ -92,12 +94,14 @@
                     <tr>
                     <th><?php echo $row3->nama_alternatif; ?></th>
                     <?php
+                    $model->where('kasus_id',$kasus_id);
                     $model->where('alternatif_id',$row3->id_alternatif);
                     $nilai = $model->getbobot()->result();
                     foreach ($nilai as $row1){ ?>
                       <td><?php
                       $model2->where('id_kriteria',$row1->kriteria_id);
                       $result2 = $model2->get1()->row_array();
+                      $model1->where('kasus_id',$kasus_id);
                       $result1 = $model1->selectsum('skor_alt_kri',$row1->kriteria_id);
                       $result_pembagi = $result1['skor_alt_kri'] + $result2['bobot_kriteria'];
                       $result_normalisasi = $row1->skor_alt_kri / $result_pembagi;
@@ -111,12 +115,11 @@
                     <td>
                       <?php
                       $model5 = $this->AlternatifModel;
+                      $model5->where('kasus_id',$kasus_id);
                       $model5->where('alternatif_id',$row3->id_alternatif);
                       $avg = $model5->selectavg('hasil_alt_kri');
                       $result_avg = $avg['hasil_alt_kri'];
                       echo $result_avg;
-                      var_dump($result_avg,$row3->id_alternatif,$kasus_id);
-
 
                       $hasil = $this->RankingModel;
                       $hasil->alternatif_id = $row3->id_alternatif;
@@ -132,6 +135,7 @@
                     <?php foreach ($kriteria as $row){
                       $model2->where('id_kriteria',$row->id_kriteria);
                       $result4 = $model2->get1()->row_array();
+                      $model1->where('kasus_id',$kasus_id);
                       $result3 = $model1->selectsum('skor_alt_kri',$row->id_kriteria);
                       $result_pembagi = $result3['skor_alt_kri'] + $result4['bobot_kriteria'];
                       $result_normalisasi = $row->bobot_kriteria / $result_pembagi;
@@ -146,11 +150,13 @@
                 <?php
                 $model1 = $this->AlternatifModel;
                 foreach ($kriteria as $row){
+                  $model1->where('kasus_id',$kasus_id);
                   $result = $model1->selectsum('skor_alt_kri',$row->id_kriteria);
                   $result1 = $result['skor_alt_kri'] + $row->bobot_kriteria;
 
                   $model2->where('id_kriteria',$row->id_kriteria);
                   $result6 = $model2->get1()->row_array();
+                  $model1->where('kasus_id',$kasus_id);
                   $result5 = $model1->selectsum('skor_alt_kri',$row->id_kriteria);
                   $result_pembagi = $result5['skor_alt_kri'] + $result6['bobot_kriteria'];
                   $result_normalisasi = $result1 / $result_pembagi;

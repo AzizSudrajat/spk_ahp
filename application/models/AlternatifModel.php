@@ -81,5 +81,8 @@ class AlternatifModel extends CI_Model {
 		$query = $this->db->get('hasil_alternatif_kriteria');
 		return $query->row_array();
 	}
+	public function deletehasil($id){
+					$this->db->delete($this->table,['kasus_id'=>$id]);
+	}
 }
 ?>

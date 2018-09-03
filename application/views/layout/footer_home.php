@@ -43,19 +43,13 @@
           }
         },
         series: [
+          <?php foreach ($chart as $row){ ?>
+            {
+              name: '<?php echo $row->nama_alternatif.'( '.$row->deskripsi.' )'; ?>',
+              data: [<?php echo $row->bobot; ?>]
+            },
+          <?php } ?>
 
-          {
-            name: 'Alternataif 1',
-            data: [0.1]
-          },
-          {
-            name: 'Alternataif 2',
-            data: [0.3]
-          },
-          {
-            name: 'Alternataif 3',
-            data: [0.2]
-          },
 
         ]
       });

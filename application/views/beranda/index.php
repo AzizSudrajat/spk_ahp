@@ -9,10 +9,6 @@
 
     <!-- BODY -->
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <div id="container2" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
-        <br/>
-      </div>
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
