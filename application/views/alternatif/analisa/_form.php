@@ -60,7 +60,6 @@ $jumlah_alternatif1 = count($table) - 1;
 
   ?>
   <div class="text-center">
-    <button onclick="history.go(-1);" class="btn btn-danger">Kembali</button>
     <button type="submit" class="btn btn-primary">Proses</button>
   </div>
 </div>

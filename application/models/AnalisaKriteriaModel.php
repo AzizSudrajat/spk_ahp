@@ -41,6 +41,10 @@ class AnalisaKriteriaModel extends CI_Model {
 					$this->db->delete($this->table,['id_alternatif'=>$id]);
 	}
 
+	public function deleteall(){
+		$this->db->empty_table($this->table);
+	}
+
 	public function where($field,$value){
 			return $this->db->where($field,$value);
 	}

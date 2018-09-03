@@ -69,7 +69,10 @@ class Kriteria extends CI_Controller {
 		$this->load->view('kriteria/analisa/index',$data);
 		$this->load->view('layout/footer');
 	}
+
 	public function analisa_kriteria(){
+		$hapus = $this->AnalisaKriteriaModel;
+		$hapus->deleteall();
 		$analisa = $this->AnalisaKriteriaModel;
 		$kriteria = $this->KriteriaModel;
 		$data_kriteria = $kriteria->get();
@@ -123,7 +126,7 @@ class Kriteria extends CI_Controller {
 			$analisa->nilai_analisa_kriteria = '1';
 			$analisa->insert();
 		}
-		redirect('kriteria/index');
+		redirect('kriteria/table_analisa_kriteria');
 	}
 
 	public function table_analisa_kriteria(){

@@ -177,6 +177,9 @@
           </div>
         </div>
       </div>
+      <div class="col-md-12">
+        <a class="btn btn-success" href="<?php echo base_url(); ?>">Beranda</a>
+      </div>
     </div>
   </div>
 </div>
