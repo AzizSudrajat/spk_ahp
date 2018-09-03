@@ -82,7 +82,7 @@ class AlternatifModel extends CI_Model {
 		return $query->row_array();
 	}
 	public function deletehasil($id){
-					$this->db->delete($this->table,['kasus_id'=>$id]);
+					$this->db->delete('hasil_alternatif_kriteria',['kasus_id'=>$id]);
 	}
 }
 ?>

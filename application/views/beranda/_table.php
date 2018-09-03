@@ -19,7 +19,7 @@
         <td><?php echo $row->tanggal_kasus; ?></td>
         <td>
           <a class="btn btn-sm btn-success" href="<?php echo base_url('beranda/kasus/'.$row->id_kasus) ?>">Lihat Data</a>
-          <a class="btn btn-sm btn-danger" href="">Hapus Dara</a>
+          <a class="btn btn-sm btn-danger" href="<?php echo base_url('beranda/delete/'.$row->id_kasus) ?>">Hapus Data</a>
         </td>
       </tr>
     <?php $no++; } ?>

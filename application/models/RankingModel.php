@@ -24,18 +24,10 @@ class RankingModel extends CI_Model {
 			$this->db->update($this->table, $this, array('id' => $id));
 	}
 	public function delete($id){
-					$this->db->delete($this->table,['id'=>$id]);
+					$this->db->delete($this->table,['kasus_id'=>$id]);
 	}
 	public function where($field,$value){
 			return $this->db->where($field,$value);
-	}
-	public function like($field,$value){
-			return $this->db->like($field,$value);
-	}
-	public function find($id){
-					$this->db->where('id',$id);
-					$table = $this->db->get($this->table,1);
-					return $table->row_array();
 	}
 }
 ?>

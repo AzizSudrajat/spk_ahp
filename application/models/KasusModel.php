@@ -24,7 +24,7 @@ class KasusModel extends CI_Model {
 			$this->db->update($this->table, $this, array('id' => $id));
 	}
 	public function delete($id){
-					$this->db->delete($this->table,['id'=>$id]);
+					$this->db->delete($this->table,['id_kasus'=>$id]);
 	}
 	public function where($field,$value){
 			return $this->db->where($field,$value);

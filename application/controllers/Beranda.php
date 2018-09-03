@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Beranda extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
-		$this->load->model(array('KasusModel','HasilAnalisaModel','KriteriaModel','AlternatifModel','RankingModel'));
+		$this->load->model(array('KasusModel','HasilAnalisaModel','KriteriaModel','AlternatifModel','RankingModel','AnalisaAlternatifModel'));
 	}
 	public function index(){
 		$model = $this->KasusModel;
@@ -34,6 +34,14 @@ class Beranda extends CI_Controller {
 		$this->load->view('layout/footer_home',$json);
 	}
 	public function delete($id){
-
+		$kasus = $this->KasusModel;
+		$kasus->delete($id);
+		$analisaalt = $this->AnalisaAlternatifModel;
+		$analisaalt->delete($id);
+		$hasilanalisa = $this->AlternatifModel;
+		$hasilanalisa->deletehasil($id);
+		$ranking = $this->RankingModel;
+		$ranking->delete($id);
+		redirect('beranda');
 	}
 }

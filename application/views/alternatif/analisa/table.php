@@ -121,6 +121,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                     $data = $model1->get1()->row_array();
                     $model3 = $this->AnalisaAlternatifModel;
                     $model3->where('kasus_id',$kasus_id);
+                    $model3->where('kriteria_id',$kriteria_id);
                     $model3->where('alternatif_id_kedua', 'A'.$no);
                     $sum1 = $model3->selectsum('nilai_analisa_alternatif');
                      ?>
@@ -195,7 +196,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
         </div>
       </div>
 
-      
+
 
       <div class="col-md-10">
         <?php
