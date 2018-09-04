@@ -24,11 +24,8 @@ class Beranda extends CI_Controller {
 		$data['alternatif'] = $alternatif->get();
 
 		$chart = $this->RankingModel;
-		$chart->where('ranking.kasus_id',$kasus_id);
-		$json['chart'] = $chart->get('ranking.*, alternatif.*',
-			[
-				['table'=>'alternatif','condition'=>'alternatif.id_alternatif = ranking.alternatif_id']
-			]);
+		$chart->where('kasus_id',$kasus_id);
+		$json['chart'] = $chart->get();
 		$this->load->view('layout/header');
 		$this->load->view('beranda/kasus',$data);
 		$this->load->view('layout/footer_home',$json);

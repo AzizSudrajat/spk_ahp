@@ -23,22 +23,31 @@
               <thead>
                 <tr>
                   <th>Rangking</th>
-                  <?php foreach ($kriteria as $row){ ?>
-                    <th><?php echo $row->nama_kriteria; ?></th>
+                  <?php
+                  $x = $this->AlternatifModel;
+                  $this->db->distinct();
+                  $this->db->select('kriteria_id');
+                  $x->where('kasus_id', $kasus_id);
+                  $xr = $x->getbobot()->result();
+                  foreach ($xr as $row){ ?>
+                    <th><?php echo $row->kriteria_id; ?></th>
                   <?php } ?>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                $model = $this->AlternatifModel;
-                $alternatif = $model->get();
-                foreach ($alternatif as $row2) { ?>
+                $y = $this->AlternatifModel;
+                $this->db->distinct();
+                $this->db->select('alternatif_id');
+                $y->where('kasus_id', $kasus_id);
+                $yr = $y->getbobot()->result();
+                foreach ($yr as $row2) { ?>
                   <tr>
-                    <th><?php echo $row2->nama_alternatif; ?></th>
+                    <th><?php echo $row2->alternatif_id; ?></th>
                   <?php
                   $model1 = $this->AlternatifModel;
                   $model1->where('kasus_id',$kasus_id);
-                  $model1->where('alternatif_id',$row2->id_alternatif);
+                  $model1->where('alternatif_id',$row2->alternatif_id);
                   $data = $model1->getbobot()->result();
                   foreach ($data as $row3) { ?>
                     <td><?php echo $row3->hasil_alt_kri; ?></td>
@@ -54,11 +63,8 @@
         <?php
           $rangking = $this->RankingModel;
           $this->db->order_by("bobot", "desc");
-          $rangking->where('ranking.kasus_id',$kasus_id);
-          $result = $rangking->get('ranking.*, alternatif.*',
-            [
-              ['table'=>'alternatif','condition'=>'alternatif.id_alternatif = ranking.alternatif_id']
-            ]);
+          $rangking->where('kasus_id',$kasus_id);
+          $result = $rangking->get();
           $no=1;
           foreach ($result as $row4) { ?>
         <h3>Rangking <?php echo $no.' '.$row4->deskripsi.' = '.$row4->bobot ?> </h3>

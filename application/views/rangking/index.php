@@ -17,8 +17,6 @@
           <div class="panel-body">
             <?php
             $this->load->model(array('AlternatifModel','KriteriaModel','RankingModel'));
-            // $this->load->model('');
-            // $this->load->model('RangkingModel');
             $model = $this->AlternatifModel;
             $model2 = $this->KriteriaModel;
              ?>
@@ -123,6 +121,8 @@
 
                       $hasil = $this->RankingModel;
                       $hasil->alternatif_id = $row3->id_alternatif;
+                      $hasil->nama_alternatif = $row3->nama_alternatif;
+                      $hasil->deskripsi = $row3->deskripsi;
                       $hasil->bobot = $result_avg;
                       $hasil->kasus_id = $kasus_id;
                       $hasil->insert();
