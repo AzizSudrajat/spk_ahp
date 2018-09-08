@@ -126,7 +126,7 @@
                     $model4 = $this->AnalisaKriteriaModel;
                     $model4->where('kriteria_id_pertama', $row->id_kriteria);
                     $avg = $model4->selectavg('hasil_analisa_kriteria');
-                    $hasil_avg = number_format($avg['hasil_analisa_kriteria'], 3, '.', ',');
+                    $hasil_avg = $avg['hasil_analisa_kriteria'];
                     echo $hasil_avg;
                     $model6 = $this->KriteriaModel;
                     $model6->bobot_kriteria = $hasil_avg;

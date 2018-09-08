@@ -143,7 +143,7 @@ $this->load->model(array('AlternatifModel','AnalisaAlternatifModel'));
                     $model4->where('kriteria_id',$kriteria_id);
                     $model4->where('alternatif_id_pertama', $row->id_alternatif);
                     $avg = $model4->selectavg('hasil_analisa_alternatif');
-                    $hasil_avg = number_format($avg['hasil_analisa_alternatif'], 3, '.', ',');
+                    $hasil_avg = $avg['hasil_analisa_alternatif'];
                     echo $hasil_avg;
 
                     $model8 = $this->AlternatifModel;
