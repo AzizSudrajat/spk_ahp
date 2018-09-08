@@ -25,23 +25,14 @@
                     <div class="alert alert-info">
                         Sistem ini di gunakan untuk menentukan karyawan terbaik pada periode nya. Ditentukan dengan beberapa Kriteria dan Alternatif yang dapat di kelolah di dalam Sistem ini.
                         <br />
-                         <strong> Beberapa Fitur di dalam Sistem PEndukung Keputusan ini :</strong>
+                         <strong> Beberapa Fitur di dalam Sistem Pendukung Keputusan ini :</strong>
                         <ul>
-                            <li>
-                                Pengelolahan Data Kriteria
-                            </li>
-                            <li>
-                                Pengelolahan Data Nilai
-                            </li>
+                            <li>Pengelolahan Data Kriteria</li>
+                            <li>Pengelolahan Data Nilai</li>
                             <li>Pengelolahan Data Alternatif (Karyawan)</li>
-                            <li>
-                                Penganalisisan Data Kriteria Untuk Mendapatkan Kriteria Prioritas
-                            </li>
-                            <li>
-                              Penganalisisan Data Alternatif Pada Setiap Kriteria nya
-                            </li>
-                            <li>Perankingan ALternatif</li>
-                            <li>Setiap Alur dibungkus dalam Kasus atau Proide</li>
+                            <li>Penganalisisan Data Kriteria Untuk Mendapatkan Kriteria Prioritas</li>
+                            <li>Penganalisisan Data Alternatif Pada Setiap Kriteria nya</li>
+                            <li>Perankingan Alternatif</li>
                             <li>Chart Untuk Menampilkan Ranking Alternatif</li>
                         </ul>
 

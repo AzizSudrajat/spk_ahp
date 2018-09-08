@@ -62,7 +62,7 @@
 
   ?>
   <div class="text-center">
-    <button onclick="history.go(-1);" class="btn btn-danger">Kembali</button>
+    <a class="btn btn-danger" href="<?php echo base_url('kriteria'); ?>">Kembali</a>
     <button type="submit" class="btn btn-primary">Proses</button>
   </div>
 </div>
