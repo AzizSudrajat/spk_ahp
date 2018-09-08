@@ -6,6 +6,9 @@ class Alternatif extends CI_Controller {
 		parent::__construct();
 		$this->load->model(array('AlternatifModel','KriteriaModel','NilaiModel','AnalisaAlternatifModel','KasusModel'));
 		$this->load->helper('string');
+		if(!$this->session->has_userdata('login')){
+      redirect('login');
+    }
 	}
 	public function index(){
 		$model = $this->AlternatifModel;

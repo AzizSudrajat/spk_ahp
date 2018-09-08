@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2018 at 04:19 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Sep 08, 2018 at 06:57 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -202,7 +202,52 @@ INSERT INTO `analisa_alternatif` (`id`, `kriteria_id`, `alternatif_id_pertama`, 
 (528, 'C5', 'A3', 'A2', 8, 0.87671232876712, 'CA9462'),
 (529, 'C5', 'A1', 'A1', 1, 0.058823529411765, 'CA9462'),
 (530, 'C5', 'A2', 'A2', 1, 0.10958904109589, 'CA9462'),
-(531, 'C5', 'A3', 'A3', 1, 0.8, 'CA9462');
+(531, 'C5', 'A3', 'A3', 1, 0.8, 'CA9462'),
+(532, 'C1', 'A1', 'A2', 0.1, 0.009009009009009, 'CA5396'),
+(533, 'C1', 'A1', 'A3', 0.1, 0.083333333333333, 'CA5396'),
+(534, 'C1', 'A2', 'A3', 0.1, 0.083333333333333, 'CA5396'),
+(535, 'C1', 'A2', 'A1', 10, 0.47619047619048, 'CA5396'),
+(536, 'C1', 'A3', 'A1', 10, 0.47619047619048, 'CA5396'),
+(537, 'C1', 'A3', 'A2', 10, 0.9009009009009, 'CA5396'),
+(538, 'C1', 'A1', 'A1', 1, 0.047619047619048, 'CA5396'),
+(539, 'C1', 'A2', 'A2', 1, 0.09009009009009, 'CA5396'),
+(540, 'C1', 'A3', 'A3', 1, 0.83333333333333, 'CA5396'),
+(541, 'C2', 'A1', 'A2', 0.125, 0.013698630136986, 'CA5396'),
+(542, 'C2', 'A1', 'A3', 0.125, 0.1, 'CA5396'),
+(543, 'C2', 'A2', 'A3', 0.125, 0.1, 'CA5396'),
+(544, 'C2', 'A2', 'A1', 8, 0.47058823529412, 'CA5396'),
+(545, 'C2', 'A3', 'A1', 8, 0.47058823529412, 'CA5396'),
+(546, 'C2', 'A3', 'A2', 8, 0.87671232876712, 'CA5396'),
+(547, 'C2', 'A1', 'A1', 1, 0.058823529411765, 'CA5396'),
+(548, 'C2', 'A2', 'A2', 1, 0.10958904109589, 'CA5396'),
+(549, 'C2', 'A3', 'A3', 1, 0.8, 'CA5396'),
+(550, 'C3', 'A1', 'A2', 0.143, 0.017576189416124, 'CA5396'),
+(551, 'C3', 'A1', 'A3', 0.143, 0.11119751166407, 'CA5396'),
+(552, 'C3', 'A2', 'A3', 0.143, 0.11119751166407, 'CA5396'),
+(553, 'C3', 'A2', 'A1', 6.993006993007, 0.46663555762949, 'CA5396'),
+(554, 'C3', 'A3', 'A1', 6.993006993007, 0.46663555762949, 'CA5396'),
+(555, 'C3', 'A3', 'A2', 6.993006993007, 0.85951339508651, 'CA5396'),
+(556, 'C3', 'A1', 'A1', 1, 0.066728884741017, 'CA5396'),
+(557, 'C3', 'A2', 'A2', 1, 0.12291041549737, 'CA5396'),
+(558, 'C3', 'A3', 'A3', 1, 0.77760497667185, 'CA5396'),
+(559, 'C4', 'A1', 'A2', 0.167, 0.023340243319672, 'CA5396'),
+(560, 'C4', 'A1', 'A3', 0.167, 0.12518740629685, 'CA5396'),
+(561, 'C4', 'A2', 'A3', 0.167, 0.12518740629685, 'CA5396'),
+(562, 'C4', 'A2', 'A1', 5.9880239520958, 0.46146746654361, 'CA5396'),
+(563, 'C4', 'A3', 'A1', 5.9880239520958, 0.46146746654361, 'CA5396'),
+(564, 'C4', 'A3', 'A2', 5.9880239520958, 0.83689782063439, 'CA5396'),
+(565, 'C4', 'A1', 'A1', 1, 0.077065066912783, 'CA5396'),
+(566, 'C4', 'A2', 'A2', 1, 0.13976193604594, 'CA5396'),
+(567, 'C4', 'A3', 'A3', 1, 0.7496251874063, 'CA5396'),
+(568, 'C5', 'A1', 'A2', 0.167, 0.023340243319672, 'CA5396'),
+(569, 'C5', 'A1', 'A3', 0.167, 0.12518740629685, 'CA5396'),
+(570, 'C5', 'A2', 'A3', 0.167, 0.12518740629685, 'CA5396'),
+(571, 'C5', 'A2', 'A1', 5.9880239520958, 0.46146746654361, 'CA5396'),
+(572, 'C5', 'A3', 'A1', 5.9880239520958, 0.46146746654361, 'CA5396'),
+(573, 'C5', 'A3', 'A2', 5.9880239520958, 0.83689782063439, 'CA5396'),
+(574, 'C5', 'A1', 'A1', 1, 0.077065066912783, 'CA5396'),
+(575, 'C5', 'A2', 'A2', 1, 0.13976193604594, 'CA5396'),
+(576, 'C5', 'A3', 'A3', 1, 0.7496251874063, 'CA5396');
 
 -- --------------------------------------------------------
 
@@ -314,7 +359,22 @@ INSERT INTO `hasil_alternatif_kriteria` (`id`, `kriteria_id`, `alternatif_id`, `
 (169, 'C4', 'A3', 0.737, 0.61570593149541, 'CA9462'),
 (170, 'C5', 'A1', 0.058, 0.053064958828911, 'CA9462'),
 (171, 'C5', 'A2', 0.227, 0.20768526989936, 'CA9462'),
-(172, 'C5', 'A3', 0.716, 0.65507776761208, 'CA9462');
+(172, 'C5', 'A3', 0.716, 0.65507776761208, 'CA9462'),
+(173, 'C1', 'A1', 0.047, 0.031756756756757, 'CA5396'),
+(174, 'C1', 'A2', 0.217, 0.14662162162162, 'CA5396'),
+(175, 'C1', 'A3', 0.737, 0.49797297297297, 'CA5396'),
+(176, 'C2', 'A1', 0.058, 0.051418439716312, 'CA5396'),
+(177, 'C2', 'A2', 0.227, 0.20124113475177, 'CA5396'),
+(178, 'C2', 'A3', 0.716, 0.63475177304965, 'CA5396'),
+(179, 'C3', 'A1', 0.065, 0.05877034358047, 'CA5396'),
+(180, 'C3', 'A2', 0.234, 0.21157323688969, 'CA5396'),
+(181, 'C3', 'A3', 0.701, 0.63381555153707, 'CA5396'),
+(182, 'C4', 'A1', 0.075, 0.062709030100334, 'CA5396'),
+(183, 'C4', 'A2', 0.242, 0.20234113712375, 'CA5396'),
+(184, 'C4', 'A3', 0.683, 0.57107023411371, 'CA5396'),
+(185, 'C5', 'A1', 0.075, 0.068681318681319, 'CA5396'),
+(186, 'C5', 'A2', 0.242, 0.22161172161172, 'CA5396'),
+(187, 'C5', 'A3', 0.683, 0.62545787545788, 'CA5396');
 
 -- --------------------------------------------------------
 
@@ -337,7 +397,8 @@ CREATE TABLE `kasus` (
 INSERT INTO `kasus` (`id`, `id_kasus`, `nama_kasus`, `tanggal_kasus`, `deskripsi`) VALUES
 (18, 'CA3872', 'Pemilihan Karyawan Terbaik', 'Januari 2019', 'Coba 1'),
 (19, 'CA3619', 'Pemilihan Karyawan Terbaik', 'Februari 2019', 'Coba 2'),
-(20, 'CA9462', 'Pemilihan Karyawan Terbaik', 'Maret 2019', 'Coba 3');
+(20, 'CA9462', 'Pemilihan Karyawan Terbaik', 'Maret 2019', 'Coba 3'),
+(21, 'CA5396', 'Pemilihan Karyawan Terbaik', 'April 2019', 'Coba 4');
 
 -- --------------------------------------------------------
 
@@ -426,7 +487,10 @@ INSERT INTO `ranking` (`id`, `alternatif_id`, `nama_alternatif`, `deskripsi`, `b
 (27, 'A3', 'Alterantif 3', 'Wawa', 0.051233541161048, 'CA3619'),
 (28, 'A1', 'Alterantif 1', 'Fathi Khairina', 0.0416420604456854, 'CA9462'),
 (29, 'A2', 'Alterantif 2', 'Aziz Sudrajat', 0.184798924267934, 'CA9462'),
-(30, 'A3', 'Alterantif 3', 'Wawa', 0.617577758141322, 'CA9462');
+(30, 'A3', 'Alterantif 3', 'Wawa', 0.617577758141322, 'CA9462'),
+(31, 'A1', 'Alterantif 1', 'Fathi Khairina', 0.0546671777670384, 'CA5396'),
+(32, 'A2', 'Alterantif 2', 'Aziz Sudrajat', 0.19667777039971002, 'CA5396'),
+(33, 'A3', 'Alterantif 3', 'Wawa', 0.592613681426256, 'CA5396');
 
 -- --------------------------------------------------------
 
@@ -435,12 +499,19 @@ INSERT INTO `ranking` (`id`, `alternatif_id`, `nama_alternatif`, `deskripsi`, `b
 --
 
 CREATE TABLE `user` (
-  `id_user` varchar(15) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `level` int(1) NOT NULL,
   `deskripsi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`, `level`, `deskripsi`) VALUES
+(1, 'fathikhairina', 'P@ssw0rd', 2, 'Divisi IT');
 
 --
 -- Indexes for dumped tables
@@ -527,7 +598,7 @@ ALTER TABLE `alternatif`
 -- AUTO_INCREMENT for table `analisa_alternatif`
 --
 ALTER TABLE `analisa_alternatif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=532;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=577;
 
 --
 -- AUTO_INCREMENT for table `analisa_kriteria`
@@ -539,19 +610,25 @@ ALTER TABLE `analisa_kriteria`
 -- AUTO_INCREMENT for table `hasil_alternatif_kriteria`
 --
 ALTER TABLE `hasil_alternatif_kriteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
 -- AUTO_INCREMENT for table `kasus`
 --
 ALTER TABLE `kasus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `ranking`
 --
 ALTER TABLE `ranking`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

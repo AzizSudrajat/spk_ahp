@@ -5,6 +5,9 @@ class Nilai extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('NilaiModel');
+		if(!$this->session->has_userdata('login')){
+      redirect('login');
+    }
 	}
 	public function index(){
 		$model = $this->NilaiModel;

@@ -7,6 +7,9 @@ class Kriteria extends CI_Controller {
 		$this->load->model('KriteriaModel');
 		$this->load->model('NilaiModel');
 		$this->load->model('AnalisaKriteriaModel');
+		if(!$this->session->has_userdata('login')){
+      redirect('login');
+    }
 	}
 	public function index(){
 		$model = $this->KriteriaModel;

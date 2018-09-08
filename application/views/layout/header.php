@@ -33,13 +33,18 @@
                 </a>
       </div>
 
+
       <div class="left-div">
         <div class="user-settings-wrapper">
+
           <ul class="nav">
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
-                            </a>
+                <span class="glyphicon glyphicon-user" style="font-size: 25px;"></span>
+              </a>
+              <?php if (!$this->session->has_userdata('login')): ?>
+
+              <?php else: ?>
               <div class="dropdown-menu dropdown-settings">
                 <div class="media">
                   <a class="media-left" href="#">
@@ -53,15 +58,23 @@
                 <hr />
                 <h5><strong>Personal Bio : </strong></h5> Technical Support Division
                 <hr />
-                <a href="login.html" class="btn btn-danger btn-sm">Keluar</a>
+                <a href="<?php echo base_url('login/logout') ?>" class="btn btn-danger btn-sm">Keluar</a>
               </div>
+              <?php endif; ?>
             </li>
           </ul>
         </div>
       </div>
+
     </div>
   </div>
   <!-- LOGO HEADER END-->
+
+  <?php if (!$this->session->has_userdata('login')): ?>
+
+  <?php else: ?>
+
+
   <section class="menu-section">
     <div class="container">
       <div class="row">
@@ -85,3 +98,4 @@
       </div>
     </div>
   </section>
+<?php endif; ?>
