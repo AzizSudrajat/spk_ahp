@@ -79,10 +79,20 @@
 }
 
 /* fotter */
-
 footer {
-  padding: 10px;
-  color: #fff;
-  font-size: 12px;
-  background-color: #0277af;
+    padding: 0px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #C36464;
+}
+footer .footer-top {
+  background-color: #248fcf
+}
+
+footer .footer-top .list {
+  padding-top: 20px;
+}
+
+footer .footer-bottom {
+  background-color: #1f7bb1
 }

@@ -45,19 +45,20 @@
               <?php if (!$this->session->has_userdata('login')): ?>
 
               <?php else: ?>
+                <?php
+                $users = $this->session->userdata('user');
+                 ?>
               <div class="dropdown-menu dropdown-settings">
                 <div class="media">
                   <a class="media-left" href="#">
                                         <img src="<?php echo base_url() ?>public/img/64-64.jpg" alt="" class="img-rounded" />
                                     </a>
                   <div class="media-body">
-                    <h4 class="media-heading">Fathi Khairina </h4>
-                    <h5>Divisi IT</h5>
+                    <h4 class="media-heading"><?php echo $users['username']; ?> </h4>
+                    <h5><?php echo $users['deskripsi']; ?></h5>
                   </div>
                 </div>
-                <hr />
-                <h5><strong>Personal Bio : </strong></h5> Technical Support Division
-                <hr />
+                <br>
                 <a href="<?php echo base_url('login/logout') ?>" class="btn btn-danger btn-sm">Keluar</a>
               </div>
               <?php endif; ?>
