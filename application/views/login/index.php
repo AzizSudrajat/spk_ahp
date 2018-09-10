@@ -12,6 +12,7 @@
                 <div class="col-md-6">
                     <h4> Masuk <strong> Sistem Pendukung Keputusan :</strong></h4>
                     <br />
+                    <div id="error_text"><?php echo $this->session->flashdata('error'); ?></div>
                     <form class="" action="<?php echo base_url('login/auth') ?>" method="post">
                       <label>Masukan Username : </label>
                       <input type="text" class="form-control" name="username" />

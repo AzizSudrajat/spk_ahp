@@ -101,3 +101,9 @@ footer .footer-top .list {
 footer .footer-bottom {
   background-color: #1f7bb1
 }
+
+
+/* general */
+#error_text {
+  color: red;
+}

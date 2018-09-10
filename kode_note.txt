@@ -24,3 +24,45 @@ alternatif/analisa/table.php
     </div>
   </div>
 </div>
+
+1. login (10)
+- Validasi Login
+
+2. Data Nilai (20)
+- Lihat Data
+- Tambah Data
+- Ubah Data
+- Hapus Data
+
+3. Data Kriteria (20)
+- Lihat Data
+- Tambah Data
+- Ubah Data
+- Hapus Data
+
+4. Data Alternatif (20)
+- Lihat Data
+- Tambah Data
+- Ubah Data
+- Hapus Data
+
+5. Analisis Kriteria (10)
+- Analisis Antar Kriteria
+
+6. Analisis Alternatif (10)
+- Analisis Antar Alternatif
+
+7. Kasus (5)
+- Tambah Kasus
+
+8. Ranking (5)
+- Lihat Data Ranking
+
+= 100
+
+Skala Pengujian
+100 - 81 = Sistem Sangat Baik
+80 - 61 = Sistem Baik
+60 - 41 = Sistem Normal
+40 - 21 = Sitem Kurang baik
+20 - 0 = Sistem Buruk

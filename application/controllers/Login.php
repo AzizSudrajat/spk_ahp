@@ -15,6 +15,7 @@ class Login extends CI_Controller {
 		$password = $this->input->post('password');
 		$auth = $this->UserModel->authenticate($username,$password);
 		if($auth === 0){
+			$this->session->set_flashdata('error','Username atau Password Salah');
 			redirect('login');
 		}
 		else{
