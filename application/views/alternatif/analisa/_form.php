@@ -23,7 +23,7 @@ $jumlah_alternatif1 = count($table) - 1;
       <?php if ($row1->nama_alternatif !== $row2->nama_alternatif): ?>
         <?php if (substr($row1->id_alternatif,1,1) < substr($row2->id_alternatif,1,1)): ?>
           <div class="form-group">
-            <select name="<?php echo 'B'.substr($row1->id_alternatif,1,1) . substr($row2->id_alternatif,1,1); ?>" class="form-control">
+            <select name="<?php echo 'B'.substr($row1->id_alternatif,1,1) . substr($row2->id_alternatif,1,1); ?>" class="form-control" required>
               <option value=''>--Select--</option>
               <?php foreach($table1 as $row): ?>
                 <option value="<?php echo $row->jumlah_nilai ?>" <?php echo (isset($form['nilai_analisa_kriteria']) && $form['nilai_analisa_kriteria'] == $row->id_nilai ) ? 'selected' : ''?> >

@@ -83,7 +83,7 @@
           <div class="navbar-collapse collapse pull-left">
             <ul id="menu-top" class="nav navbar-nav navbar-right">
               <li class="<?php echo activate_menu('beranda') ?>"><a  href="<?php echo base_url(); ?>">Beranda</a></li>
-              <li class="<?php echo activate_menu('nilai') ?>"><a href="<?php echo base_url('nilai'); ?>">Data Nilai</a></li>
+              <li class="<?php echo activate_menu('nilai') ?>"><a href="<?php echo base_url('nilai'); ?>">Data Nilai Perbandingan</a></li>
               <li class="dropdown <?php echo activate_menu('kriteria') ?>">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kriteria
                   <span class="caret"></span></a>
