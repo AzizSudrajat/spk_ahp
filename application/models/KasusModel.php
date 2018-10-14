@@ -33,7 +33,7 @@ class KasusModel extends CI_Model {
 			return $this->db->like($field,$value);
 	}
 	public function find($id){
-					$this->db->where('id',$id);
+					$this->db->where('id_kasus',$id);
 					$table = $this->db->get($this->table,1);
 					return $table->row_array();
 	}

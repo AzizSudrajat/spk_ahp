@@ -70,9 +70,13 @@
         <h3>Rangking <?php echo $no.' '.$row4->deskripsi.' = '.$row4->bobot ?> </h3>
       <?php $no++; } ?>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-10">
         <br>
         <a class="btn btn-primary" href="<?php echo base_url(); ?>">Beranda</a>
+      </div>
+      <div class="col-md-2">
+        <br>
+        <a class="btn btn-success" href="<?php echo base_url('beranda/laporan/'.$kasus_id); ?>">Download Laporan</a>
       </div>
     </div>
   </div>
